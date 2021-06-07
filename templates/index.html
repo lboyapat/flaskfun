@@ -1,0 +1,50 @@
+{% extends 'home.html' %}
+
+{% block head %}
+<title>TODO-Task Master</title>
+{% endblock %}
+
+{% block body %} 
+
+<div align="center"> 
+    <h1 color="BLUE"> Welcome to the TaskMaster App!!</h1>
+    <marquee behavior="scrolling"  direction="right">Add notes!</marquee><br>
+    <marquee behavior="scroll" direction="left">
+        <img src="//www.html.am/images/html-codes/marquees/fish-swimming.gif" alt="Swimming fish">
+        </marquee>
+        
+        
+    {% if tasks|length < 1 %}
+    <h4 >There are no tasks. Create one below!<
+        /h4>
+    {% else %}
+        <table width = 35% align="center" border="1" background=#212121 cellspacing="0" 
+        cellpadding=1 color="blue" order="1">
+            <tr>
+                <th width=30% align="left">Task</th>
+                <th width=20% align="left">Priority</th>
+                <th width=20% align="left">Added</th>
+                <th width=30% align="left">Actions</th>            
+            </tr>
+            {% for task in tasks %}
+                <tr class="left">
+                    <td> {{ task.text }}</td>
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.date_created.date() }}</td>
+                    <td><a href="/delete/{{ task.id }}">Delete</a><br>
+                        <a href="/update/{{ task.id }}">Update</a>
+                    </td>
+                </tr>    
+            {% endfor %}        
+        </table> 
+    {% endif %}
+    <br>
+    <h4><b> Fill below form to add to the TaskMaster</b></h4> 
+    <form action="/" method="POST">
+            <input type="text" name="text" id="text">
+            <input type="string" name="priority" id="priority">
+            <input type="submit" value="Add Task">
+    </form>
+</div>
+
+{% endblock %}
