@@ -1,5 +1,10 @@
 #Create a ubuntu base image with python 3 installed.
-FROM python:3
+FROM python:3.7
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 
 #Set the working directory
 WORKDIR /usr/src/app
