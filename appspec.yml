@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /tmp
+hooks:
+  BeforeInstall:
+    - location: Scripts/pullImage.sh
+  AfterInstall:
+    - location: Scripts/run.sh
+    
