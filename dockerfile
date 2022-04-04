@@ -1,5 +1,5 @@
 #Create a ubuntu base image with python 3 installed.
-FROM python:3.7
+FROM public.ecr.aws/docker/library/python:latest
 
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
