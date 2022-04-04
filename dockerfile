@@ -20,7 +20,7 @@ RUN pip3 install sqlalchemy
 RUN pip install -r requirements.txt
 
 #Expose the required port
-EXPOSE 5001
+EXPOSE 80
 
 #Run the command
 CMD python ./app.py
