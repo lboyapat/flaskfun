@@ -13,7 +13,6 @@ WORKDIR /usr/src/app
 COPY . .
 
 #Install the dependencies
-
 RUN apt-get -y update && apt-get install -y python3 python3-pip
 
 RUN pip3 install flask Flask-SQLAlchemy
